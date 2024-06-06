@@ -28,10 +28,6 @@ QUERY = "http://localhost:8080/query?id={}"
 # 500 server request
 N = 500
 
-
-
-    """ Produce all the needed values to generate a datapoint """
-    """ ------------- Update this function ------------- """
 def getDataPoint(quote):
     """ Produce all of the needed values to generate a datapoint """
     stock = quote['stock']
@@ -40,13 +36,11 @@ def getDataPoint(quote):
     price = (bid_price + ask_price) / 2  # Correctly calculate the price as the average of bid and ask
     return stock, bid_price, ask_price, price
 
-
 def getRatio(price_a, price_b):
     """ Get ratio of price_a to price_b """
     if price_b == 0:
         return None  # Handle division by zero
     return price_a / price_b
-
 
 def main():
     quotes = [
@@ -64,3 +58,5 @@ def main():
     ratio = getRatio(prices['ABC'], prices['DEF'])
     print(f"The ratio of ABC to DEF is {ratio}")
 
+if __name__ == "__main__":
+    main()
